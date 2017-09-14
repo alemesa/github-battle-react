@@ -18,11 +18,12 @@ function RepoGrid(props) {
                   alt={`Avatar for ${repo.owner.login}`}
                 />
               </li>
+
               <li>
                 <a href={repo.html_url}>{repo.name}</a>
-                <li>@{repo.owner.login}</li>
-                <li>{repo.stargazers_count} stars</li>
               </li>
+              <li>@{repo.owner.login}</li>
+              <li>{repo.stargazers_count} stars</li>
             </ul>
           </li>
         );
