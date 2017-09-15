@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@jam3/gsap-promise": "^4.0.1",
     "axios": "^0.16.2",
+    "gsap": "^1.20.2",
     "query-string": "^5.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.13"
+    "react-scripts": "1.0.13",
+    "react-transition-group": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -3,6 +3,9 @@ import PlayerInput from './PlayerInput';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import animate from '@jam3/gsap-promise';
+import { findDOMNode } from 'react-dom';
+
 function PlayerPreview(props) {
   return (
     <div>
@@ -37,6 +40,20 @@ class Battle extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReset = this.handleReset.bind(this);
   }
+
+  componentDidMount() {
+    animate.from(this.first, 0.4, {
+      x: 2200,
+      opacity: 0.5,
+      delay: 0.2
+    });
+    animate.from(this.second, 0.4, {
+      x: -2200,
+      opacity: 0.5,
+      delay: 0.2
+    });
+  }
+
   handleSubmit(id, username) {
     this.setState(function() {
       var newState = {};
@@ -71,6 +88,7 @@ class Battle extends React.Component {
         <div className="row">
           {!playerOneName && (
             <PlayerInput
+              ref={a => (this.first = findDOMNode(a))}
               id="playerOne"
               label="Player One"
               onSubmit={this.handleSubmit}
@@ -88,6 +106,7 @@ class Battle extends React.Component {
 
           {!playerTwoName && (
             <PlayerInput
+              ref={b => (this.second = findDOMNode(b))}
               id="playerTwo"
               label="Player Two"
               onSubmit={this.handleSubmit}
