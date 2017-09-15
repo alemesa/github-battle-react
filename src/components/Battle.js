@@ -1,7 +1,29 @@
 import React from 'react';
 import PlayerInput from '../components/PlayerInput';
-import PlayerPreview from '../components/PlayerPreview';
+import Results from '../components/Results';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
+function PlayerPreview(props) {
+  return (
+    <div>
+      <div className="column">
+        <img src={props.avatar} alt={props.username} className="avatar" />
+        <h2 className="username">@{props.username}</h2>
+      </div>
+      <button className="reset" onClick={props.onReset.bind(null, props.id)}>
+        Reset
+      </button>
+    </div>
+  );
+}
+
+PlayerPreview.PropTypes = {
+  avatar: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  onReset: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired
+};
 
 class Battle extends React.Component {
   constructor(props) {
@@ -78,7 +100,7 @@ class Battle extends React.Component {
               avatar={playerTwoImage}
               username={playerTwoName}
               onReset={this.handleReset}
-              id="playerOne"
+              id="playerTwo"
             />
           )}
 

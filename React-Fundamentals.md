@@ -269,9 +269,7 @@ function HelloWorld (props) {
 ReactDOM.render(<HelloWorld name='Tyler' />, document.getElementById('app'))
 ```
 
-
 ### Life Cycle Events
 ![React Life Cycle](./React-Life-Cycles.png)
-```javascript
 
-```
+### 

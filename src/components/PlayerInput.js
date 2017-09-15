@@ -12,7 +12,7 @@ class PlayerInput extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event) {
-    var value = event.target.value;
+    let value = event.target.value;
 
     this.setState({ username: value });
   }
