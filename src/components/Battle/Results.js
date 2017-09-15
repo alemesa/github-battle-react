@@ -1,8 +1,9 @@
 import React from 'react';
 import queryString from 'query-string';
-import { battle } from '../utils/api';
+import { battle } from '../../utils/api';
 import { Link } from 'react-router-dom';
-import Player from '../components/Player';
+import Player from './Player';
+import Loading from '../Reusable/Loading';
 
 class Results extends React.Component {
   constructor(props) {
@@ -46,7 +47,7 @@ class Results extends React.Component {
     let { winner, loser, error, loading } = this.state;
 
     if (loading === true) {
-      return <p>Loading</p>;
+      return <Loading speed="200" />;
     }
 
     if (error) {

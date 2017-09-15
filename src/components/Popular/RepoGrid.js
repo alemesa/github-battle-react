@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 // stateless functional component
 function RepoGrid(props) {
-  console.log(props);
   return (
     <ul className="popular-list">
       {props.repos.map((repo, index) => {

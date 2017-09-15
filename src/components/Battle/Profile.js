@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PlayerPreview from '../components/PlayerPreview';
+import PlayerPreview from './PlayerPreview';
 
 // stateless functional component
 function Profile(props) {

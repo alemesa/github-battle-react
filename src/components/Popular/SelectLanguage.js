@@ -10,7 +10,8 @@ function SelectLanguage(props) {
     'Java',
     'CSS',
     'Python',
-    'PHP'
+    'PHP',
+    'Shell'
   ];
 
   return (

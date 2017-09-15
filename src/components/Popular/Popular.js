@@ -1,7 +1,8 @@
 import React from 'react';
-import SelectLanguage from '../components/SelectLanguage';
-import RepoGrid from '../components/RepoGrid';
-import { fetchPopularRepos } from '../utils/api';
+import SelectLanguage from './SelectLanguage';
+import RepoGrid from './RepoGrid';
+import { fetchPopularRepos } from '../../utils/api';
+import Loading from '../Reusable/Loading';
 
 class Popular extends React.Component {
   constructor(props) {
@@ -29,7 +30,6 @@ class Popular extends React.Component {
 
     fetchPopularRepos(lang).then(
       function(repos) {
-        console.log(repos);
         this.setState(function() {
           return { repos: repos };
         });
@@ -49,7 +49,7 @@ class Popular extends React.Component {
 
         {//don't call it until repos are loaded
         !this.state.repos ? (
-          <p>LOADING!</p>
+          <Loading speed="250" />
         ) : (
           <RepoGrid repos={this.state.repos} />
         )}

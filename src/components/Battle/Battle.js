@@ -1,6 +1,5 @@
 import React from 'react';
-import PlayerInput from '../components/PlayerInput';
-import Results from '../components/Results';
+import PlayerInput from './PlayerInput';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -103,20 +102,19 @@ class Battle extends React.Component {
               id="playerTwo"
             />
           )}
-
-          {playerOneImage &&
-          playerTwoImage && (
-            <Link
-              className="button"
-              to={{
-                pathname: `${match.url}/results`,
-                search: `?playerOneName=${playerOneName}&playerTwoName=${playerTwoName}`
-              }}
-            >
-              Battle
-            </Link>
-          )}
         </div>
+        {playerOneImage &&
+        playerTwoImage && (
+          <Link
+            className="button"
+            to={{
+              pathname: `${match.url}/results`,
+              search: `?playerOneName=${playerOneName}&playerTwoName=${playerTwoName}`
+            }}
+          >
+            Battle
+          </Link>
+        )}
       </div>
     );
   }

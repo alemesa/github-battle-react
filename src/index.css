@@ -144,6 +144,14 @@ li {
   cursor: pointer;
 }
 
+.language.li {
+  transition: all 0.5s ease-in;
+}
+
 .languages li.selected {
   color: #d0021b;
+}
+
+.languages li:hover {
+  color: #f44336;
 }
