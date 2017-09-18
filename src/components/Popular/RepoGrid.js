@@ -14,24 +14,14 @@ class RepoGrid extends React.Component {
 
   componentDidMount() {
     animate.staggerFrom(
-      '.to-left',
+      '.popular-item',
       0.5,
       {
         x: -1500,
         opacity: 0.5,
         delay: 0.2
       },
-      0.025
-    );
-    animate.staggerFrom(
-      '.to-right',
-      0.5,
-      {
-        x: 1500,
-        opacity: 0.5,
-        delay: 0.2
-      },
-      0.025
+      0.035
     );
   }
   render() {
@@ -43,7 +33,8 @@ class RepoGrid extends React.Component {
           return (
             <li
               key={repo.name}
-              className={`popular-item ${index % 2 ? 'to-right' : 'to-left'}`}
+              //className={`popular-item ${index % 2 ? 'to-right' : 'to-left'}`}
+              className="popular-item"
             >
               <div className="popular-rank">#{index + 1}</div>
               <ul className="space-list-items">

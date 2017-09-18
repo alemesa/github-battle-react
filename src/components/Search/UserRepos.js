@@ -5,25 +5,34 @@ function UserRepos(props) {
 
   return (
     <div className="profileRepos">
-      {repos.map((repo, index) => {
-        return (
-          <li key={repo.name}>
-            {repo.name}
-            {repo.description}
-            <i className="fa fa-star" aria-hidden="true" />
-            {repo.stargazers_count}
-            <i className="fa fa-eye" aria-hidden="true" />
-            {repo.watchers_count}
-            <i className="fa fa-code-fork" aria-hidden="true" />
-            {repo.forks_count}
-            {repo.language}
-            {index + 1} {repo.name}
-            <a className="button-repo" href={repo.html_url} target="_blank">
-              Repo
-            </a>
-          </li>
-        );
-      })}
+      <h4 style={{ width: '100%', textAlign: 'center' }}>Latest Repos</h4>
+      <ul className="space-list-items">
+        {repos.map((repo, index) => {
+          return (
+            <li className="repo" key={repo.name}>
+              <h3>
+                <a href="repo.html_url" target="_blank">
+                  {repo.name}
+                </a>
+              </h3>
+              <br />
+              <p>{repo.description}</p>
+              <br />
+              <div className="stats">
+                <i className="fa fa-star" aria-hidden="true" />
+                Stars: {repo.stargazers_count}
+                <i className="fa fa-code-fork" aria-hidden="true" />
+                Forks: {repo.forks_count}
+              </div>
+              <p>{repo.language ? `Main Language: ${repo.language}` : ``}</p>
+              <br />
+              <a className="button-repo" href={repo.html_url} target="_blank">
+                Repo
+              </a>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

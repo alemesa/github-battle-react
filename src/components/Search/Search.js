@@ -4,6 +4,7 @@ import UserRepos from './UserRepos';
 import PropTypes from 'prop-types';
 import { getProfile, getUserRepos } from '../../utils/api';
 import Loading from '../Reusable/Loading';
+import animate from '@jam3/gsap-promise';
 
 class Search extends React.Component {
   constructor(props) {
@@ -11,16 +12,30 @@ class Search extends React.Component {
     this.state = {
       user: null,
       userInfo: '',
-      userRepos: ''
+      userRepos: '',
+      loading: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentDidMount() {
+    animate.from(this.label, 0.2, { y: -200, delay: 0.1 });
+    animate.from(this.input, 0.3, {
+      x: -1200,
+      opacity: 0.5,
+      delay: 0.2
+    });
+    animate.from(this.button, 0.3, {
+      x: -1200,
+      opacity: 0.5,
+      delay: 0.2
+    });
+  }
+
   handleChange(event) {
     this.setState({ user: event.target.value });
-    console.log('changing');
   }
 
   handleSubmit(event) {
@@ -28,11 +43,9 @@ class Search extends React.Component {
     this.setState({
       user: null,
       userInfo: '',
-      userRepos: ''
+      userRepos: '',
+      loading: true
     });
-    console.log('cleaning and submitting');
-
-    // Reword this to async / await
 
     getProfile(this.state.user).then(
       function(info) {
@@ -49,30 +62,41 @@ class Search extends React.Component {
         });
       }.bind(this)
     );
+
+    this.setState({
+      loading: false
+    });
   }
 
   render() {
-    let { userInfo, userRepos } = this.state;
+    let { userInfo, userRepos, loading } = this.state;
 
     return (
       <div>
         <form className="column centered" onSubmit={this.handleSubmit}>
-          <label className="header" htmlFor="user">
+          <label ref={c => (this.label = c)} className="header" htmlFor="user">
             Enter a Github username
           </label>
           <input
+            ref={l => (this.input = l)}
             id="user"
             type="text"
             placeholder="Github Username"
             autoComplete="off"
             onChange={this.handleChange}
           />
-          <button className="button" type="submit" disabled={!this.state.user}>
+          <button
+            ref={z => (this.button = z)}
+            className="button"
+            type="submit"
+            disabled={!this.state.user}
+          >
             Search
           </button>
         </form>
 
         <div className="profile">
+          {loading ? <Loading speed="250" /> : ' '}
           {userRepos && <UserProfile profile={userInfo} />}
           {userRepos && <UserRepos repos={userRepos} />}
         </div>

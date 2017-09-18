@@ -7,24 +7,28 @@ function UserProfile(props) {
 
   return (
     <div className="profileInfo">
-      <div>
+      <div className="profileLogo">
         <img className="avatar" src={profile.avatar_url} alt={profile.login} />
+        <br />
+        <a href={profile.html_url}>{profile.login}</a>
       </div>
       <div>
-        <h3>
-          {profile.name} <a href={profile.html_url}>{profile.login}</a>{' '}
-        </h3>
+        <h3>{profile.name}</h3>
         <h4>
-          <i className="fa fa-map-marker" aria-hidden="true" />
+          <i className="fa fa-map-marker" aria-hidden="true" />{' '}
           {profile.location}
         </h4>
-        <h5>{profile.company}</h5>
-        {profile.bio}
+        <h4>{profile.company ? `Company: ${profile.company}` : ``}</h4>
+        <p>{profile.bio}</p>
       </div>
       <div>
-        <h2>Website {profile.blog}</h2>
+        <h4>
+          <a href={profile.blog} target="_blank">
+            {profile.blog}
+          </a>
+        </h4>
         <p>
-          <i className="fa fa-code-fork" aria-hidden="true" /> Repos:
+          <i className="fa fa-code-fork" aria-hidden="true" /> Repos:{' '}
           {profile.public_repos}
         </p>
         <p>
@@ -39,10 +43,10 @@ function UserProfile(props) {
           <i className="fa fa-users" aria-hidden="true" /> Following:{' '}
           {profile.following}
         </p>
-        <h4>
+        <h5>
           <i className="fa fa-calendar" aria-hidden="true" /> Member since:{' '}
           {readableMonth}, {date.getFullYear()}
-        </h4>
+        </h5>
       </div>
     </div>
   );

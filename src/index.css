@@ -10,7 +10,12 @@ body {
 
 a {
   text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: 1.25 all ease-in;
   color: #d0021b;
+}
+a:hover {
+  border-bottom: 2px solid #d0021b;
 }
 
 ul {
@@ -170,36 +175,73 @@ li {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  flex: 1 0 25%;
+  justify-content: center;
+  align-items: top;
+}
+
+.profileInfo > div {
+  width: 250px;
+  margin: 10px;
+  align-self: top;
+  padding: 15px;
+}
+
+.profileLogo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileRepos ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   flex: 1 1 33%;
   justify-content: center;
 }
 
-.profileInfo > div {
-  margin: 25px;
-}
-
-.profileRepos {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex: 1 1 25%;
-  justify-content: center;
-}
-
 .repo {
+  width: 300px;
   display: flex;
   flex-direction: column;
+  margin: 25px;
+  padding: 20px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
+}
+
+.repo > * {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.repo .stats {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 5px 0px;
 }
 
 .button-repo {
   color: #e6e6e6;
   background: #0a0a0a;
-  border: none;
-  font-size: 12px;
-  border-radius: 2px;
+  border: 1px solid #e6e6e6;
+  font-size: 15px;
+  border-radius: 3px;
   width: 100px;
   text-align: center;
-  display: block;
-  padding: 5px 0;
-  margin: 7px auto;
+  padding: 7px 0;
+  margin: 9px auto;
+  transition: 0.05s all ease-in;
+}
+
+.button-repo:hover {
+  background-color: #e6e6e6;
+  color: #0a0a0a;
+  border: 1px solid #0a0a0a;
+}
+
+.fa {
+  padding-left: 5px;
 }
