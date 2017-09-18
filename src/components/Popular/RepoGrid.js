@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import animate from '@jam3/gsap-promise';
-import { findDOMNode } from 'react-dom';
 
 // stateless functional component
 class RepoGrid extends React.Component {

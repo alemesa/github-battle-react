@@ -1,18 +1,24 @@
 import axios from 'axios';
 
-const id = 'YOUR_CLIENT_ID';
-const sec = 'YOUR_SECRET_ID';
+const id = '84578f19a9a926634249';
+const sec = '502dc7203598a42426d1e277384404091c24d88c';
 const params = `?client_id=${id}&client_secret=${sec}`;
 
-function getProfile(username) {
+export function getUserRepos(username) {
+  return axios
+    .get(`http://api.github.com/users/${username}/repos${params}`)
+    .then(user => user.data);
+}
+
+export function getProfile(username) {
   return axios
     .get(`http://api.github.com/users/${username}${params}`)
     .then(user => user.data);
 }
 
-function getRepos(username) {
+function getRepos(username, quantity = 100) {
   return axios.get(
-    `http://api.github.com/users/${username}/repos${params}&per_page=100`
+    `http://api.github.com/users/${username}/repos${params}&per_page=${quantity}`
   );
 }
 

@@ -20,6 +20,11 @@ class Nav extends React.Component {
             Popular
           </NavLink>
         </li>
+        <li>
+          <NavLink activeClassName="active" to="/search">
+            Search
+          </NavLink>
+        </li>
       </ul>
     );
   }

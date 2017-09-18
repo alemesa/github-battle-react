@@ -29,7 +29,7 @@ class PlayerInput extends React.Component {
         </label>
         <input
           id="username"
-          placeholder="github username"
+          placeholder="Github Username"
           type="text"
           value={this.state.username}
           autoComplete="off"
