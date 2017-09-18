@@ -14,9 +14,6 @@ a {
   transition: 1.25 all ease-in;
   color: #d0021b;
 }
-a:hover {
-  border-bottom: 2px solid #d0021b;
-}
 
 ul {
   padding: 0;
@@ -169,6 +166,10 @@ li {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+}
+
+.profile a:hover {
+  border-bottom: 2px solid #d0021b;
 }
 
 .profileInfo {
