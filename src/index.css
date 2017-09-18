@@ -10,7 +10,7 @@ body {
 
 a {
   text-decoration: none;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
   transition: 1.25 all ease-in;
   color: #d0021b;
 }
@@ -237,7 +237,7 @@ li {
 }
 
 .button-repo:hover {
-  background-color: #e6e6e6;
+  background-color: #ffffff;
   color: #0a0a0a;
   border: 1px solid #0a0a0a;
 }

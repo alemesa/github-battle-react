@@ -24,7 +24,7 @@ var ProfilePic = function(){
 ```
 
 ### Imperative vs Declarative Paradigm
-```javascript
+```jsx
 // Imperative (How) => like a normal loop
 for(var i = 0; i < numbers.length; i++){
     total += numbers[i];
@@ -48,7 +48,7 @@ this.setState({
 
 #### Reduce is pretty cool
 
-```javascript
+```jsx
 var sum = [0, 1, 2, 3].reduce(function (a, b) {
   return a + b;
 }, 0);
@@ -88,7 +88,7 @@ module.exports = {
  
 * `We should treat props passed to a component as inmutable` 
 
-```javascript
+```jsx
 <Badge user={USER_DATA}/>
 
 // Then to access it we use
@@ -120,7 +120,7 @@ class Label extends React.Component {
 ```
 
 ### .map() & .filter() 🔥
-```javascript
+```jsx
 // .map() goes through the whole array like a for loop
 // Example
 var numbers = [1,2,3];
@@ -151,12 +151,12 @@ console.log(newFriends) // ['Ean', 'Eric']
 ```
 
 * Remember to pass the key to every list-item as a unique identifier
-```javascript
+```jsx
   return <li key={user.name}>{user.name}</li>
 ```
 
 ### Pure Functions and Function Composition
-```javascript
+```jsx
 var getProfileLink = function (username) {
   return 'https://www.fb.com/' + username
 }
@@ -194,7 +194,7 @@ getProfileData('tylermcginnis')
 ```
 
 * Slice and Splice
-```javascript
+```jsx
 var friends = ['Ryan', 'Michael', 'Dan']
 // Slice return from posiiton 0 to 1
 .slice(0,1)  // 'Ryan'
@@ -206,7 +206,7 @@ var friends = ['Ryan', 'Michael', 'Dan']
 ``` 
 
 ### PropTypes
-```javascript
+```jsx
 // require
 var PropTypes = require('prop-types');
 
@@ -228,7 +228,7 @@ Users.propTypes = {
 ```
 
 ### The 'this' keyword
-```javascript
+```jsx
 // Implicit Binding
 ale.callName()
 callName(){return this.name}
@@ -250,7 +250,7 @@ let newFunction = sayName.bind(...arguments)
 
 * With arrow function you don't need to pass to .map() a second argument .this because it already binds
 
-```javascript
+```jsx
 // Explicit bound
 // New function where this function is bind to this keyword
 this.updateLanguage = this.updateLanguage.bind(this);
@@ -260,7 +260,7 @@ onClick={this.updateLanguage.bind(null, lang)}
 ```
 
 ### Stateless Functional Components
-```javascript
+```jsx
 function HelloWorld (props) {
   return (
     <div>Hello {props.name}</div>
