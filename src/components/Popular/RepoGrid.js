@@ -36,7 +36,6 @@ class RepoGrid extends React.Component {
   }
   render() {
     let repos = this.state.repos;
-    console.log(repos);
 
     return (
       <ul className="popular-list">

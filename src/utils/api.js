@@ -3,10 +3,11 @@ import axios from 'axios';
 const id = '84578f19a9a926634249';
 const sec = '502dc7203598a42426d1e277384404091c24d88c';
 const params = `?client_id=${id}&client_secret=${sec}`;
+const latest = `${params}&order=asc&sort=updated`;
 
 export function getUserRepos(username) {
   return axios
-    .get(`http://api.github.com/users/${username}/repos${params}`)
+    .get(`http://api.github.com/users/${username}/repos${latest}`)
     .then(user => user.data);
 }
 

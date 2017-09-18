@@ -3,6 +3,7 @@ import UserProfile from './UserProfile';
 import UserRepos from './UserRepos';
 import PropTypes from 'prop-types';
 import { getProfile, getUserRepos } from '../../utils/api';
+import Loading from '../Reusable/Loading';
 
 class Search extends React.Component {
   constructor(props) {
@@ -29,7 +30,9 @@ class Search extends React.Component {
       userInfo: '',
       userRepos: ''
     });
-    console.log('submitting');
+    console.log('cleaning and submitting');
+
+    // Reword this to async / await
 
     getProfile(this.state.user).then(
       function(info) {
@@ -49,11 +52,11 @@ class Search extends React.Component {
   }
 
   render() {
-    let { user, userInfo, userRepos } = this.state;
+    let { userInfo, userRepos } = this.state;
 
     return (
       <div>
-        <form className="column" onSubmit={this.handleSubmit}>
+        <form className="column centered" onSubmit={this.handleSubmit}>
           <label className="header" htmlFor="user">
             Enter a Github username
           </label>
@@ -69,16 +72,19 @@ class Search extends React.Component {
           </button>
         </form>
 
-        {userRepos && <UserProfile profile={userInfo} /> && (
-          <UserRepos repos={userRepos} />
-        )}
+        <div className="profile">
+          {userRepos && <UserProfile profile={userInfo} />}
+          {userRepos && <UserRepos repos={userRepos} />}
+        </div>
       </div>
     );
   }
 }
 
 Search.PropTypes = {
-  user: PropTypes.string.isRequired
+  user: PropTypes.string.isRequired,
+  userInfo: PropTypes.object.isRequired,
+  userRepos: PropTypes.object.isRequired
 };
 
 export default Search;

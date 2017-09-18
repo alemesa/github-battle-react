@@ -110,6 +110,10 @@ li {
   align-items: center;
 }
 
+.centered {
+  margin: 0 auto;
+}
+
 .column input {
   border-radius: 3px;
   margin: 10px 0;
@@ -154,4 +158,48 @@ li {
 
 .languages li:hover {
   color: #f44336;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1 1 33%;
+  justify-content: center;
+}
+
+.profileInfo > div {
+  margin: 25px;
+}
+
+.profileRepos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1 1 25%;
+  justify-content: center;
+}
+
+.repo {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-repo {
+  color: #e6e6e6;
+  background: #0a0a0a;
+  border: none;
+  font-size: 12px;
+  border-radius: 2px;
+  width: 100px;
+  text-align: center;
+  display: block;
+  padding: 5px 0;
+  margin: 7px auto;
 }
